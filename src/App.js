@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
-const ACCESS_CODE = "Eshoy"; // Define your access code here
+const ACCESS_CODE = process.env.REACT_APP_CODE; 
+console.log(ACCESS_CODE)
 
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1 },
