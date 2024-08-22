@@ -14,46 +14,15 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Color de fondo para los slots no resaltados */
+  transition: background-color 0.3s ease; /* Transición suave de color */
 }
 
 .slot.current {
-  color: white;
+  background-color: #4caf50; /* Color de fondo para el slot actual */
+  color: white; /* Color del texto para el slot actual */
+}
+
+.slot span {
   font-weight: bold;
-}
-
-.slot.entrenamiento {
-  background-color: #ff5722; /* Naranja */
-}
-
-.slot.trabajo {
-  background-color: #2196f3; /* Azul */
-}
-
-.slot.pausa {
-  background-color: #9c27b0; /* Morado */
-}
-
-.slot.almuerzo {
-  background-color: #4caf50; /* Verde */
-}
-
-.slot.llevar {
-  background-color: #ffeb3b; /* Amarillo */
-}
-
-.slot.recoger {
-  background-color: #e91e63; /* Rosa */
-}
-
-.slot.lectura {
-  background-color: #3f51b5; /* Azul oscuro */
-}
-
-.slot.reunion {
-  background-color: #ff9800; /* Naranja claro */
-}
-
-.slot.escuela {
-  background-color: #795548; /* Marrón */
 }

@@ -3,30 +3,30 @@ import "./App.css";
 
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento" },
-  { time: "08:30 - 11:30", activity: "Trabajo" },
+  { time: "08:30 - 11:30", activity: "Trabajo #1" },
   { time: "11:30 - 12:00", activity: "Pausa" },
-  { time: "12:00 - 12:15", activity: "Recoger" },
+  { time: "12:00 - 12:15", activity: "Recoger #1" },
   { time: "12:15 - 13:00", activity: "Almuerzo" },
-  { time: "13:00 - 14:00", activity: "Trabajo" },
+  { time: "13:00 - 14:00", activity: "Trabajo #2" },
   { time: "14:00 - 14:15", activity: "Llevar" },
   { time: "14:15 - 15:30", activity: "Trabajo" },
-  { time: "15:30 - 16:50", activity: "Trabajo" },
-  { time: "16:50 - 17:15", activity: "Recoger" },
+  { time: "15:30 - 16:50", activity: "Trabajo #3" },
+  { time: "16:50 - 17:15", activity: "Recoger #2" },
   { time: "17:15 - 18:00", activity: "Lectura" },
 ];
 
 const thursdaySchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento" },
-  { time: "08:30 - 10:30", activity: "Trabajo" },
+  { time: "08:30 - 10:30", activity: "Trabajo #1" },
   { time: "10:30 - 11:00", activity: "Pausa" },
   { time: "11:00 - 11:50", activity: "Reunión" },
-  { time: "11:50 - 12:15", activity: "Recoger" },
+  { time: "11:50 - 12:15", activity: "Recoger #1" },
   { time: "12:15 - 13:00", activity: "Almuerzo" },
-  { time: "13:00 - 14:00", activity: "Trabajo" },
+  { time: "13:00 - 14:00", activity: "Trabajo #2" },
   { time: "14:00 - 14:15", activity: "Llevar" },
-  { time: "14:15 - 15:30", activity: "Trabajo" },
+  { time: "14:15 - 15:30", activity: "Trabajo #3" },
   { time: "15:30 - 16:50", activity: "Lectura" },
-  { time: "16:50 - 17:15", activity: "Recoger" },
+  { time: "16:50 - 17:15", activity: "Recoger #2" },
 ];
 
 const App = () => {
