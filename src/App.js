@@ -1,37 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
-const ACCESS_CODE = process.env.REACT_APP_CODE; 
+const ACCESS_CODE = process.env.REACT_APP_CODE;
 console.log(ACCESS_CODE)
 
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
-  { time: "08:30 - 10:30", activity: "Trabajo", id: 2 , label: "Primer bloque de trabajo" },
-  { time: "10:30 - 11:00", activity: "Pausa", id: 3 , label: "Desayuno" },
-  { time: "11:00 - 11:50", activity: "Trabajo", id: 4 , label: "Segundo bloque de trabajo" },
-  { time: "11:50 - 12:15", activity: "Recoger", id: 5 , label: "Ir a buscar a Pia" },
-  { time: "12:15 - 13:00", activity: "Almuerzo", id: 6 , label: "Almuerzo" },
-  { time: "13:00 - 13:50", activity: "Trabajo", id: 7 , label: "Tercer bloque de trabajo" },
-  { time: "13:50 - 14:15", activity: "Llevar", id: 8 , label: "Llevar a Alison al jardin" },
-  { time: "14:15 - 16:20", activity: "Trabajo", id: 9 , label: "Cuarto bloque de trabajo" },
-  { time: "16:20 - 16:50", activity: "Pausa", id: 10 , label: "Oración" },
-  { time: "16:50 - 17:15", activity: "Recoger", id: 11 , label: "Ir a buscar a Alison al jardin" },
-  { time: "17:15 - 18:00", activity: "Pausa", id: 12 , label: "Descanso" },
+  { time: "08:30 - 10:30", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
+  { time: "10:30 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "11:00 - 11:50", activity: "Trabajo", id: 4, label: "Segundo bloque de trabajo" },
+  { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
+  { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
+  { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Tercer bloque de trabajo" },
+  { time: "13:50 - 14:15", activity: "Llevar", id: 8, label: "Llevar a Alison al jardin" },
+  { time: "14:15 - 16:20", activity: "Trabajo", id: 9, label: "Cuarto bloque de trabajo" },
+  { time: "16:20 - 16:50", activity: "Pausa", id: 10, label: "Oración" },
+  { time: "16:50 - 17:15", activity: "Recoger", id: 11, label: "Ir a buscar a Alison al jardin" },
+  { time: "17:15 - 18:00", activity: "Pausa", id: 12, label: "Descanso" },
 ];
 
 const thursdaySchedule = [
-  { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento"  },
-  { time: "08:30 - 10:30", activity: "Trabajo", id: 2 , label: "Primer bloque de trabajo" },
-  { time: "10:30 - 11:00", activity: "Pausa", id: 3 , label: "Desayuno" },
-  { time: "11:00 - 11:50", activity: "Reunión", id: 4 , label: "Reunion de Los Jueves" },
-  { time: "11:50 - 12:15", activity: "Recoger", id: 5 , label: "Ir a buscar a Pia" },
-  { time: "12:15 - 13:00", activity: "Almuerzo", id: 6 , label: "Almuerzo" },
-  { time: "13:00 - 13:50", activity: "Trabajo", id: 7 , label: "Segundo bloque de trabajo" },
-  { time: "13:50 - 14:15", activity: "Llevar", id: 8 , label: "Llevar a Alison al jardin" },
-  { time: "14:15 - 16:20", activity: "Trabajo", id: 9 , label: "Tercer bloque de trabajo" },
-  { time: "16:20 - 16:50", activity: "Pausa", id: 10 , label: "Oración" },
-  { time: "16:50 - 17:15", activity: "Recoger", id: 11 , label: "Ir a buscar a Alison al jardin" },
-  { time: "17:15 - 18:00", activity: "Pausa", id: 12 , label: "Descanso" },
+  { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
+  { time: "08:30 - 10:30", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
+  { time: "10:30 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "11:00 - 11:50", activity: "Reunión", id: 4, label: "Reunion de Los Jueves" },
+  { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
+  { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
+  { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Segundo bloque de trabajo" },
+  { time: "13:50 - 14:15", activity: "Llevar", id: 8, label: "Llevar a Alison al jardin" },
+  { time: "14:15 - 16:20", activity: "Trabajo", id: 9, label: "Tercer bloque de trabajo" },
+  { time: "16:20 - 16:50", activity: "Pausa", id: 10, label: "Oración" },
+  { time: "16:50 - 17:15", activity: "Recoger", id: 11, label: "Ir a buscar a Alison al jardin" },
+  { time: "17:15 - 18:00", activity: "Pausa", id: 12, label: "Descanso" },
 ];
 
 const calculateTotalHours = (schedule, activityType) => {
@@ -141,7 +141,10 @@ const App = () => {
                 key={index}
                 className={`slot ${currentActivityId === slot.id ? "current" : ""}`}
               >
-                <span>{slot.time}</span> - <span>{slot.label}</span>
+                <div class="slot-container">
+                  <div class="slot-time">{slot.time}</div>
+                  <div class="slot-label">{slot.label}</div>
+                </div>
               </div>
             ))}
           </div>

@@ -39,3 +39,46 @@
   background-color: #d3f9d8; /* Cambia el color según tu preferencia */
   border: 2px solid #4caf50; /* Cambia el color según tu preferencia */
 }
+.slot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  margin: 10px auto;
+}
+
+.slot-time {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4a90e2; /* Azul llamativo */
+  margin-bottom: 5px;
+}
+
+.slot-label {
+  font-size: 1em;
+  color: #333;
+  background-color: #fefefe;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  .slot-container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .slot-time {
+    font-size: 1.25em;
+  }
+
+  .slot-label {
+    font-size: 0.9em;
+  }
+}
