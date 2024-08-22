@@ -58,6 +58,7 @@ const App = () => {
         setSchedule(regularSchedule);
       }
 
+      let activityFound = false; // Flag to check if activity is found
       schedule.forEach((slot) => {
         const [start, end] = slot.time.split(" - ");
         if (currentTime >= start && currentTime < end) {
@@ -67,8 +68,14 @@ const App = () => {
             const audio = new Audio(`/notification_${slot.activity.toLowerCase().replace(/\s+/g, '_')}.mp3`);
             audio.play();
           }
+          activityFound = true;
         }
       });
+
+      // Reset currentActivity if no activity is found in the current time range
+      if (!activityFound) {
+        setCurrentActivity("");
+      }
     }, 1000); // Actualiza cada minuto
 
     return () => clearInterval(interval);
