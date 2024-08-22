@@ -26,3 +26,16 @@
 .slot span {
   font-weight: bold;
 }
+
+.slot {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.current {
+  background-color: #d3f9d8; /* Cambia el color según tu preferencia */
+  border: 2px solid #4caf50; /* Cambia el color según tu preferencia */
+}
