@@ -29,6 +29,18 @@ const thursdaySchedule = [
   { time: "16:50 - 17:15", activity: "Recoger" },
 ];
 
+const activityMessages = {
+  "Entrenamiento": "Es hora del entrenamiento, Victor",
+  "Trabajo": "Es hora de trabajar, Victor",
+  "Pausa": "Es hora de la pausa, Victor",
+  "Almuerzo": "Es hora del almuerzo, Victor",
+  "Llevar": "Es hora de llevar a tu hija pequeña, Victor",
+  "Recoger": "Es hora de recoger a tu hija pequeña, Victor",
+  "Lectura": "Es hora de leer, Victor",
+  "Reunión": "Es hora de la reunión, Victor",
+  "Escuela": "Es hora de la escuela, Victor"
+};
+
 const App = () => {
   const [currentActivity, setCurrentActivity] = useState("");
   const [schedule, setSchedule] = useState(regularSchedule);
@@ -62,6 +74,11 @@ const App = () => {
     return () => clearInterval(interval);
   }, [schedule, currentActivity]); // Depende de "schedule" y "currentActivity"
 
+  const getActivityClass = (activity) => {
+    // Map activity to its corresponding CSS class
+    return activity.toLowerCase().replace(/\s+/g, '_');
+  };
+
   return (
     <div className="App">
       <h1>Horario de Victor</h1>
@@ -69,7 +86,7 @@ const App = () => {
         {schedule.map((slot, index) => (
           <div
             key={index}
-            className={`slot ${currentActivity === slot.activity ? "current" : ""}`}
+            className={`slot ${getActivityClass(slot.activity)} ${currentActivity === slot.activity ? "current" : ""}`}
           >
             <span>{slot.time}</span> - <span>{slot.activity}</span>
           </div>

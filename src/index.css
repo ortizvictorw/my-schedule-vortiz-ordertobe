@@ -18,6 +18,42 @@
 }
 
 .slot.current {
-  background-color: #4caf50;
   color: white;
+  font-weight: bold;
+}
+
+.slot.entrenamiento {
+  background-color: #ff5722; /* Naranja */
+}
+
+.slot.trabajo {
+  background-color: #2196f3; /* Azul */
+}
+
+.slot.pausa {
+  background-color: #9c27b0; /* Morado */
+}
+
+.slot.almuerzo {
+  background-color: #4caf50; /* Verde */
+}
+
+.slot.llevar {
+  background-color: #ffeb3b; /* Amarillo */
+}
+
+.slot.recoger {
+  background-color: #e91e63; /* Rosa */
+}
+
+.slot.lectura {
+  background-color: #3f51b5; /* Azul oscuro */
+}
+
+.slot.reunion {
+  background-color: #ff9800; /* Naranja claro */
+}
+
+.slot.escuela {
+  background-color: #795548; /* Marrón */
 }
