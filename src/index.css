@@ -19,7 +19,7 @@
 }
 
 .slot.current {
-  background-color: #4caf50; /* Color de fondo para el slot actual */
+  background-color: #4a90e2; /* Color de fondo para el slot actual */
   color: white; /* Color del texto para el slot actual */
 }
 
