@@ -5,33 +5,29 @@ const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento" },
   { time: "08:30 - 11:30", activity: "Trabajo" },
   { time: "11:30 - 12:00", activity: "Pausa" },
-  { time: "12:00 - 13:00", activity: "Almuerzo" },
-  { time: "13:00 - 15:30", activity: "Trabajo" },
-  { time: "15:30 - 17:00", activity: "Trabajo" },
-  { time: "17:00 - 17:30", activity: "Escuela" },
-  { time: "17:30 - 18:00", activity: "Lectura" },
+  { time: "12:00 - 12:15", activity: "Recoger" },
+  { time: "12:15 - 13:00", activity: "Almuerzo" },
+  { time: "13:00 - 14:00", activity: "Trabajo" },
+  { time: "14:00 - 14:15", activity: "Llevar" },
+  { time: "14:15 - 15:30", activity: "Trabajo" },
+  { time: "15:30 - 16:50", activity: "Trabajo" },
+  { time: "16:50 - 17:15", activity: "Recoger" },
+  { time: "17:15 - 18:00", activity: "Lectura" },
 ];
 
 const thursdaySchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento" },
   { time: "08:30 - 10:30", activity: "Trabajo" },
   { time: "10:30 - 11:00", activity: "Pausa" },
-  { time: "11:00 - 12:00", activity: "Reunión" },
-  { time: "12:00 - 13:00", activity: "Almuerzo" },
-  { time: "13:00 - 15:30", activity: "Trabajo" },
-  { time: "15:30 - 17:00", activity: "Lectura" },
-  { time: "17:00 - 17:30", activity: "Escuela" },
+  { time: "11:00 - 11:50", activity: "Reunión" },
+  { time: "11:50 - 12:15", activity: "Recoger" },
+  { time: "12:15 - 13:00", activity: "Almuerzo" },
+  { time: "13:00 - 14:00", activity: "Trabajo" },
+  { time: "14:00 - 14:15", activity: "Llevar" },
+  { time: "14:15 - 15:30", activity: "Trabajo" },
+  { time: "15:30 - 16:50", activity: "Lectura" },
+  { time: "16:50 - 17:15", activity: "Recoger" },
 ];
-
-const activityMessages = {
-  "Entrenamiento": "Es hora del entrenamiento, Victor",
-  "Trabajo": "Es hora de trabajar, Victor",
-  "Pausa": "Es hora de la pausa, Victor",
-  "Almuerzo": "Es hora del almuerzo, Victor",
-  "Buscar a hija": "Es hora de buscar a tu hija, Victor",
-  "Lectura": "Es hora de leer, Victor",
-  "Reunión": "Es hora de la reunión, Victor"
-};
 
 const App = () => {
   const [currentActivity, setCurrentActivity] = useState("");
@@ -56,7 +52,6 @@ const App = () => {
           if (currentActivity !== slot.activity) {
             setCurrentActivity(slot.activity);
             // Play notification sound
-            const message = activityMessages[slot.activity];
             const audio = new Audio(`/notification_${slot.activity.toLowerCase().replace(/\s+/g, '_')}.mp3`);
             audio.play();
           }
