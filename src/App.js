@@ -8,7 +8,7 @@ const regularSchedule = [
   { time: "12:00 - 13:00", activity: "Almuerzo" },
   { time: "13:00 - 15:30", activity: "Trabajo" },
   { time: "15:30 - 17:00", activity: "Trabajo" },
-  { time: "17:00 - 17:30", activity: "Buscar a hija" },
+  { time: "17:00 - 17:30", activity: "Escuela" },
   { time: "17:30 - 18:00", activity: "Lectura" },
 ];
 
@@ -20,8 +20,18 @@ const thursdaySchedule = [
   { time: "12:00 - 13:00", activity: "Almuerzo" },
   { time: "13:00 - 15:30", activity: "Trabajo" },
   { time: "15:30 - 17:00", activity: "Lectura" },
-  { time: "17:00 - 17:30", activity: "Buscar a hija" },
+  { time: "17:00 - 17:30", activity: "Escuela" },
 ];
+
+const activityMessages = {
+  "Entrenamiento": "Es hora del entrenamiento, Victor",
+  "Trabajo": "Es hora de trabajar, Victor",
+  "Pausa": "Es hora de la pausa, Victor",
+  "Almuerzo": "Es hora del almuerzo, Victor",
+  "Buscar a hija": "Es hora de buscar a tu hija, Victor",
+  "Lectura": "Es hora de leer, Victor",
+  "Reunión": "Es hora de la reunión, Victor"
+};
 
 const App = () => {
   const [currentActivity, setCurrentActivity] = useState("");
@@ -43,13 +53,19 @@ const App = () => {
       schedule.forEach((slot) => {
         const [start, end] = slot.time.split(" - ");
         if (currentTime >= start && currentTime < end) {
-          setCurrentActivity(slot.activity);
+          if (currentActivity !== slot.activity) {
+            setCurrentActivity(slot.activity);
+            // Play notification sound
+            const message = activityMessages[slot.activity];
+            const audio = new Audio(`/notification_${slot.activity.toLowerCase().replace(/\s+/g, '_')}.mp3`);
+            audio.play();
+          }
         }
       });
     }, 1000); // Actualiza cada minuto
 
     return () => clearInterval(interval);
-  }, [schedule]); // Depende de "schedule" para cambiar según el día
+  }, [schedule, currentActivity]); // Depende de "schedule" y "currentActivity"
 
   return (
     <div className="App">
