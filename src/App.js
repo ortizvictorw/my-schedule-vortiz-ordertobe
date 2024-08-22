@@ -93,7 +93,7 @@ const App = () => {
         {schedule.map((slot, index) => (
           <div
             key={index}
-            className={`slot ${getActivityClass(slot.activity)} ${currentActivity === slot.activity ? "current" : ""}`}
+            className={`slot ${getActivityClass(slot.activity)} ${currentActivity !== slot.activity ? "current" : ""}`}
           >
             <span>{slot.time}</span> - <span>{slot.activity}</span>
           </div>
