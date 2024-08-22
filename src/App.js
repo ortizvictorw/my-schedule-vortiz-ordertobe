@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 const ACCESS_CODE = process.env.REACT_APP_CODE;
-console.log(ACCESS_CODE)
 
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
@@ -14,7 +13,7 @@ const regularSchedule = [
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Tercer bloque de trabajo" },
   { time: "13:50 - 14:15", activity: "Llevar", id: 8, label: "Llevar a Alison al jardin" },
   { time: "14:15 - 16:20", activity: "Trabajo", id: 9, label: "Cuarto bloque de trabajo" },
-  { time: "16:20 - 16:50", activity: "Pausa", id: 10, label: "Oración" },
+  { time: "16:20 - 16:50", activity: "Oracion", id: 10, label: "Oración" },
   { time: "16:50 - 17:15", activity: "Recoger", id: 11, label: "Ir a buscar a Alison al jardin" },
   { time: "17:15 - 18:00", activity: "Pausa", id: 12, label: "Descanso" },
 ];
@@ -29,7 +28,7 @@ const thursdaySchedule = [
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Segundo bloque de trabajo" },
   { time: "13:50 - 14:15", activity: "Llevar", id: 8, label: "Llevar a Alison al jardin" },
   { time: "14:15 - 16:20", activity: "Trabajo", id: 9, label: "Tercer bloque de trabajo" },
-  { time: "16:20 - 16:50", activity: "Pausa", id: 10, label: "Oración" },
+  { time: "16:20 - 16:50", activity: "Oracion", id: 10, label: "Oración" },
   { time: "16:50 - 17:15", activity: "Recoger", id: 11, label: "Ir a buscar a Alison al jardin" },
   { time: "17:15 - 18:00", activity: "Pausa", id: 12, label: "Descanso" },
 ];
@@ -67,6 +66,8 @@ const App = () => {
     recoger: useRef(null),
     reunion: useRef(null),
     trabajo: useRef(null),
+    oracion: useRef(null),
+
   };
 
   const handleLogin = () => {
@@ -159,6 +160,8 @@ const App = () => {
           <audio ref={audioRefs.recoger} src="/sound/notification_recoger.mp3" />
           <audio ref={audioRefs.reunion} src="/sound/notification_reunion.mp3" />
           <audio ref={audioRefs.trabajo} src="/sound/notification_trabajo.mp3" />
+          <audio ref={audioRefs.oracion} src="/sound/notification_oracion.m4a" />
+
         </>
       )}
     </div>
