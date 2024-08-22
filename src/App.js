@@ -14,9 +14,9 @@ const regularSchedule = [
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7 },
   { time: "13:50 - 14:15", activity: "Llevar", id: 8 },
   { time: "14:15 - 16:20", activity: "Trabajo", id: 9 },
-  { time: "16:20 - 16:50", activity: "Lectura", id: 10 },
+  { time: "16:20 - 16:50", activity: "Pausa", id: 10 },
   { time: "16:50 - 17:15", activity: "Recoger", id: 11 },
-  { time: "17:15 - 18:00", activity: "Lectura", id: 12 },
+  { time: "17:15 - 18:00", activity: "Pausa", id: 12 },
 ];
 
 const thursdaySchedule = [
@@ -29,9 +29,9 @@ const thursdaySchedule = [
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7 },
   { time: "13:50 - 14:15", activity: "Llevar", id: 8 },
   { time: "14:15 - 16:20", activity: "Trabajo", id: 9 },
-  { time: "16:20 - 16:50", activity: "Lectura", id: 10 },
+  { time: "16:20 - 16:50", activity: "Pausa", id: 10 },
   { time: "16:50 - 17:15", activity: "Recoger", id: 11 },
-  { time: "17:15 - 18:00", activity: "Lectura", id: 12 },
+  { time: "17:15 - 18:00", activity: "Pausa", id: 12 },
 ];
 
 const calculateTotalHours = (schedule, activityType) => {
