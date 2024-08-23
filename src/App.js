@@ -120,6 +120,7 @@ const App = () => {
             setCurrentActivityId(slot.id);
 
             if (audioRefs[slot.activity.toLowerCase()]) {
+              audioRefs[slot.activity.toLowerCase()].current.volume = 1
               audioRefs[slot.activity.toLowerCase()].current.play();
             }
           }
