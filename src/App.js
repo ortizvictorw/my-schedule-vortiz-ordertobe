@@ -6,8 +6,8 @@ const ACCESS_CODE = process.env.REACT_APP_CODE;
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
   { time: "08:30 - 10:00", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
-  { time: "10:00 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
-  { time: "11:00 - 11:50", activity: "Trabajo", id: 4, label: "Segundo bloque de trabajo" },
+  { time: "10:00 - 10:30", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "10:30 - 11:50", activity: "Trabajo", id: 4, label: "Segundo bloque de trabajo" },
   { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
   { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Tercer bloque de trabajo" },
@@ -21,8 +21,8 @@ const regularSchedule = [
 const thursdaySchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
   { time: "08:30 - 10:00", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
-  { time: "10:00 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
-  { time: "11:00 - 11:50", activity: "Reunión", id: 4, label: "Reunion de Los Jueves" },
+  { time: "10:00 - 10:30", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "10:30 - 11:50", activity: "Reunión", id: 4, label: "Reunion de Los Jueves" },
   { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
   { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
   { time: "13:00 - 13:50", activity: "Trabajo", id: 7, label: "Segundo bloque de trabajo" },
