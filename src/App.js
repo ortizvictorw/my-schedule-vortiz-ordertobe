@@ -83,12 +83,13 @@ const App = () => {
 
     const updateSchedule = () => {
       const now = new Date();
-      const currentTime = now.getHours() + ":" + ("0" + now.getMinutes()).slice(-2);
+      const currentTime =
+        ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2);
+
       const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 4 = Thursday
 
       const currentSchedule = dayOfWeek === 4 ? thursdaySchedule : regularSchedule;
       setSchedule(currentSchedule);
-
       let activityFound = false;
       currentSchedule.forEach((slot) => {
         const [start, end] = slot.time.split(" - ");
