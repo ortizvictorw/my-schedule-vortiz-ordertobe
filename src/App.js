@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-
+import { fetchRandomBibleVerse } from './versiculo'
 const ACCESS_CODE = process.env.REACT_APP_CODE;
 
 const regularSchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
-  { time: "08:30 - 10:30", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
-  { time: "10:30 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "08:30 - 10:00", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
+  { time: "10:00 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
   { time: "11:00 - 11:50", activity: "Trabajo", id: 4, label: "Segundo bloque de trabajo" },
   { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
   { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
@@ -20,8 +20,8 @@ const regularSchedule = [
 
 const thursdaySchedule = [
   { time: "08:00 - 08:30", activity: "Entrenamiento", id: 1, label: "Entrenamiento" },
-  { time: "08:30 - 10:30", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
-  { time: "10:30 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
+  { time: "08:30 - 10:00", activity: "Trabajo", id: 2, label: "Primer bloque de trabajo" },
+  { time: "10:00 - 11:00", activity: "Pausa", id: 3, label: "Desayuno" },
   { time: "11:00 - 11:50", activity: "Reunión", id: 4, label: "Reunion de Los Jueves" },
   { time: "11:50 - 12:15", activity: "Recoger", id: 5, label: "Ir a buscar a Pia" },
   { time: "12:15 - 13:00", activity: "Almuerzo", id: 6, label: "Almuerzo" },
@@ -32,6 +32,16 @@ const thursdaySchedule = [
   { time: "16:50 - 17:15", activity: "Recoger", id: 11, label: "Ir a buscar a Alison al jardin" },
   { time: "17:15 - 18:00", activity: "Pausa", id: 12, label: "Descanso" },
 ];
+const fetchBibleVerse = async () => {
+  try {
+    const response = await fetchRandomBibleVerse()
+    return response;
+  } catch (error) {
+    console.error("Error fetching Bible verse:", error);
+    return "Versículo no disponible.";
+  }
+};
+
 
 const calculateTotalHours = (schedule, activityType) => {
   const totalMinutes = schedule.reduce((total, slot) => {
@@ -57,6 +67,7 @@ const App = () => {
   const [currentActivity, setCurrentActivity] = useState("");
   const [currentActivityId, setCurrentActivityId] = useState("");
   const [schedule, setSchedule] = useState(regularSchedule);
+  const [bibleVerse, setBibleVerse] = useState("");
 
   const audioRefs = {
     almuerzo: useRef(null),
@@ -69,6 +80,16 @@ const App = () => {
     oracion: useRef(null),
 
   };
+
+
+  useEffect(() => {
+    const getVerse = async () => {
+      const { verso, cita } = await fetchBibleVerse();
+      setBibleVerse({ verso, cita });
+    };
+
+    getVerse();
+  }, [currentActivityId]);
 
   const handleLogin = () => {
     if (code === ACCESS_CODE) {
@@ -137,6 +158,11 @@ const App = () => {
       ) : (
         <>
           <h1>Horario de Victor</h1>
+          <div className="bible-verse-container">
+            <div className="bible-verse">{bibleVerse.verso}</div>
+            <div className="bible-verse">{bibleVerse.cita}</div>
+          </div>
+
           <div className="schedule">
             {schedule.map((slot, index) => (
               <div

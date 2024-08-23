@@ -110,3 +110,30 @@
     font-size: 1em; /* Ajuste para pantallas pequeñas */
   }
 }
+.bible-verse-container {
+  border: 1px solid #dcdcdc; /* Light gray border for separation */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Space around the text */
+  margin: 10px 0; /* Space above and below the container */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
+}
+
+.bible-verse {
+  font-family: 'Georgia', serif; /* Elegant serif font */
+  color: #333; /* Dark gray text color for readability */
+  line-height: 1.6; /* Increased line height for better readability */
+  margin: 0; /* Remove default margin */
+}
+
+.bible-verse:first-of-type {
+  font-size: 1.2em; /* Slightly larger font size for the verse */
+  font-weight: bold; /* Bold text for emphasis */
+  margin-bottom: 8px; /* Space between the verse and citation */
+}
+
+.bible-verse:last-of-type {
+  font-size: 1em; /* Regular font size for the citation */
+  font-style: italic; /* Italicize citation for distinction */
+  color: #555; /* Slightly lighter gray color for the citation */
+}
